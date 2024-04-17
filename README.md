@@ -268,16 +268,14 @@ O NgRx é utilizado para gerenciar o estado da aplicação de forma centralizada
   - **LoadingSelectors:** Selecionam informações específicas do estado relacionadas ao carregamento, como o estado de carregamento atual.
 
 
- <a name="effects"></a>
+<a name="effects"></a>
  #### Effects
-    ##### MarvelEffects
-    - **searchMarvel$:** Acionado pela ação `searchMarvel`. Ativa o estado de carregamento, faz a busca dos heróis, e em sucesso ou falha, ajusta o estado de carregamento e dispara as ações `searchMarvelSuccess` ou `searchMarvelFailure`.
-    - **fetchGptInfo$:**  Desencadeado por `selectMarvel`. Ativa o carregamento, limpa informações prévias, requisita detalhes adicionais do herói selecionado via OpenAI, e em sucesso ou falha, ajusta o carregamento e dispara `additionalGptInfoSuccess` ou `searchMarvelFailure`.
-
-    ##### ConnectionEffects
-    - **checkConnection$:** Acionado por `checkConnectionStart`. Monitora o status da conexão com a internet e dispara `checkConnectionSuccess` ou `checkConnectionFailure` com base no resultado.
-
-
+   ###### MarvelEffects
+   - **searchMarvel$:** Acionado pela ação `searchMarvel`. Ativa o estado de carregamento, faz a busca dos heróis, e em sucesso ou falha, ajusta o estado de carregamento e dispara as ações `searchMarvelSuccess` ou `searchMarvelFailure`.
+   - **fetchGptInfo$:**  Desencadeado por `selectMarvel`. Ativa o carregamento, limpa informações prévias, requisita detalhes adicionais do herói selecionado via OpenAI, e em sucesso ou falha, ajusta o carregamento e dispara `additionalGptInfoSuccess` ou `searchMarvelFailure`.
+   ###### ConnectionEffects
+   - **checkConnection$:** Acionado por `checkConnectionStart`. Monitora o status da conexão com a internet e dispara `checkConnectionSuccess` ou `checkConnectionFailure` com base no resultado.
+   
 <a name="acesso-a-dados-e-apis"></a>
 ### Acesso a Dados e APIs
 
