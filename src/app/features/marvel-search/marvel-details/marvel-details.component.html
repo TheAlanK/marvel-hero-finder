@@ -1,12 +1,12 @@
 <ng-container *ngIf="marvelDetails">
-  <div *ngIf="marvelDetails.marvel" class="marvel-details-container" aria-labelledby="marvelName">
-    <div class="marvel-image-container">
+  <article *ngIf="marvelDetails.marvel" class="marvel-details-container" aria-labelledby="marvelName">
+    <header class="marvel-image-container">
       <img [src]="marvelDetails.marvel.thumbnail.path + '.' + marvelDetails.marvel.thumbnail.extension" alt="{{ marvelDetails.marvel.name }}" width="100%">
-    </div>
-    <div class="marvel-info-container">
+    </header>
+    <section class="marvel-info-container">
       <h2 id="marvelName">{{ marvelDetails.marvel.name }}</h2>
       <div *ngIf="marvelDetails.marvel.comics.items.length > 0">
-        <h3>HQs:</h3>
+        <h3 id="comicListHeader">HQs:</h3>
         <ul aria-labelledby="comicListHeader">
           <li *ngFor="let comic of marvelDetails.marvel.comics.items | slice:0:5">{{ comic.name }}</li>
           <a mat-button color="primary"
@@ -16,7 +16,7 @@
           </a>
         </ul>
       </div>
-      <div class="marvel-links">
+      <aside class="marvel-links">
         <a mat-button *ngIf="getLink(marvelDetails.marvel, 'detail')"
         [href]="getLink(marvelDetails.marvel, 'detail')"
         target="_blank" color="primary"
@@ -30,7 +30,7 @@
         attr.aria-label="Wiki sobre {{ marvelDetails.marvel.name }}">
           Wiki
         </a>
-      </div>
+      </aside>
 
       <div *ngIf="marvelDetails.gptInfo; else gptLoading">
         <h3>Descrição do Personagem
@@ -42,12 +42,12 @@
         <p *ngIf="expanded">{{ marvelDetails.gptInfo }} <button mat-button color="primary" (click)="toggleText()" attr.aria-label="Mostrar menos texto sobre {{ marvelDetails.marvel.name }}">
           (menos)
         </button></p>
-        <div class="openai-disclaimer">
+        <footer class="openai-disclaimer">
           <small style="font-size: 0.8em; opacity: 0.8;">GPT-4 pode cometer erros.</small>
-        </div>
+        </footer>
       </div>
-    </div>
-  </div>
+    </section>
+  </article>
 </ng-container>
 
 <ng-template #gptLoading>
