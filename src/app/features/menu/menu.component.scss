@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('/assets/images/background.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu-logo {
+  width: 22%;
+  margin-bottom: 60px;
+}
+
+
+
+@media (max-width: 768px) {
+  .menu-logo {
+    width: 40%;
+  }
+
+  .smoke-effect {
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-logo {
+    width: 60%;
+  }
+
+  .smoke-effect {
+    background-size: cover;
+  }
+
+  .menu-container {
+    background-image: url('/assets/images/background-mobile.webp');
+  }
+
+}

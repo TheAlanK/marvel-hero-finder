@@ -1,0 +1,34 @@
+<mat-form-field class="search-box" role="search">
+  <mat-label i18n>Pesquisar Herói</mat-label>
+  <div class="input-wrapper">
+    <input matInput
+       [formControl]="searchControl"
+       #trigger="matAutocompleteTrigger"
+       [matAutocomplete]="auto"
+       placeholder="Digite para pesquisar..."
+       (focus)="loadSearchHistory()"
+       (blur)="onBlur()"
+       i18n-placeholder="@@pressToSearch"
+       aria-label="Digite para pesquisar heróis"
+       >
+    <div class="loader-and-clear-button-container">
+      <mat-spinner *ngIf="isLoading" diameter="20" aria-label="Carregando"></mat-spinner>
+      <button mat-icon-button *ngIf="searchControl.value" aria-label="Limpar pesquisa" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-form-field>
+
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelect($event.option.value)" aria-label="Resultados da pesquisa">
+  <mat-option *ngFor="let option of options" [value]="option" [attr.aria-label]="displayWith ? displayWith(option) : option">
+    <mat-icon *ngIf="option.isHistory" aria-hidden="true">search</mat-icon> {{ displayWith ? displayWith(option) : option }}
+  </mat-option>
+  <div *ngIf="options?.length === 0 && !isLoading && !displayWith">
+    <mat-option disabled i18n>Nenhum resultado encontrado.</mat-option>
+  </div>
+  <div *ngIf="isLoading">
+    <mat-option disabled aria-live="assertive" I18n>Carregando...</mat-option>
+  </div>
+</mat-autocomplete>
+

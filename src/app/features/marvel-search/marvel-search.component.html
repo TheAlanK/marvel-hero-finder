@@ -1,0 +1,11 @@
+<div class="hero-search-container">
+  <app-search-bar class="search-box"
+                  [options]="heroes$ | async"
+                  [isLoading]="isLoading$ | async"
+                  [displayWith]="displayHero"
+                  (searchTermChange)="handleSearch($event)"
+                  (selectionChange)="handleSelection($event)"
+                  aria-label="Barra de pesquisa de heróis">
+  </app-search-bar>
+
+  <app-marvel-details [marvelDetails]="heroDetails$ | async"></app-marvel-details>

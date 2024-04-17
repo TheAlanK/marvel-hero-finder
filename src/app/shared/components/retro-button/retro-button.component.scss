@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.button {
+  z-index: 3;
+  position: relative;
+  padding: 10px 30px;
+  border: none;
+  background: linear-gradient(145deg, #ff7597, #ff7b00);
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff7597, inset 0 0 10px #ff7b00;
+}
+
+.button:hover {
+  box-shadow: 0 0 25px #ff7b00, inset 0 0 15px #ff7597;
+  background: linear-gradient(145deg, #ff7b00, #ff7597);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: 0 2px 15px #ff7b00, inset 0 2px 10px #ff7597;
+  background: linear-gradient(145deg, #ff7b00, #ff7597);
+  transform: translateY(1px);
+}

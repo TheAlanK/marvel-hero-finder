@@ -1,0 +1,58 @@
+<ng-container *ngIf="marvelDetails">
+  <div *ngIf="marvelDetails.marvel" class="marvel-details-container" aria-labelledby="marvelName">
+    <div class="marvel-image-container">
+      <img [src]="marvelDetails.marvel.thumbnail.path + '.' + marvelDetails.marvel.thumbnail.extension" alt="{{ marvelDetails.marvel.name }}" width="100%">
+    </div>
+    <div class="marvel-info-container">
+      <h2 id="marvelName">{{ marvelDetails.marvel.name }}</h2>
+      <div *ngIf="marvelDetails.marvel.comics.items.length > 0">
+        <h3>HQs:</h3>
+        <ul aria-labelledby="comicListHeader">
+          <li *ngFor="let comic of marvelDetails.marvel.comics.items | slice:0:5">{{ comic.name }}</li>
+          <a mat-button color="primary"
+          [href]="getLink(marvelDetails.marvel, 'comiclink')" target="_blank"
+          attr.aria-label="Saiba mais sobre as HQs de {{ marvelDetails.marvel.name }}">
+            saiba mais...
+          </a>
+        </ul>
+      </div>
+      <div class="marvel-links">
+        <a mat-button *ngIf="getLink(marvelDetails.marvel, 'detail')"
+        [href]="getLink(marvelDetails.marvel, 'detail')"
+        target="_blank" color="primary"
+        attr.aria-label="Mais informações sobre {{ marvelDetails.marvel.name }}">
+          Mais Informações
+        </a>
+        <a mat-button
+        *ngIf="getLink(marvelDetails.marvel, 'wiki')"
+        [href]="getLink(marvelDetails.marvel, 'wiki')"
+        target="_blank" color="primary"
+        attr.aria-label="Wiki sobre {{ marvelDetails.marvel.name }}">
+          Wiki
+        </a>
+      </div>
+
+      <div *ngIf="marvelDetails.gptInfo; else gptLoading">
+        <h3>Descrição do Personagem
+          <small style="font-size: 0.6em; opacity: 0.8;">(Gerado por IA)</small>
+        </h3>
+        <p *ngIf="!expanded">{{ marvelDetails.gptInfo | slice:0:250 }}... <button mat-button color="primary" (click)="toggleText()" attr.aria-label="Mostrar mais texto sobre {{ marvelDetails.marvel.name }}">
+          (mais...)
+        </button></p>
+        <p *ngIf="expanded">{{ marvelDetails.gptInfo }} <button mat-button color="primary" (click)="toggleText()" attr.aria-label="Mostrar menos texto sobre {{ marvelDetails.marvel.name }}">
+          (menos)
+        </button></p>
+        <div class="openai-disclaimer">
+          <small style="font-size: 0.8em; opacity: 0.8;">GPT-4 pode cometer erros.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #gptLoading>
+  <div class="gpt-loading-container" style="text-align: center;">
+    <img src="/assets/images/powered-openai.webp" alt="Carregando" style="width: 200px;">
+    <p>GPT Trabalhando...</p>
+  </div>
+</ng-template>
