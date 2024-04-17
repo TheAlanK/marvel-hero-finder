@@ -1,0 +1,28 @@
+.search-box {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.hero-search-container {
+  background-image: url('/assets/images/background-search.webp');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .hero-search-container {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+

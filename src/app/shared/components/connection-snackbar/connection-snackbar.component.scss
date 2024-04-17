@@ -1,0 +1,16 @@
+.connection-snackbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+img {
+  display: block;
+}
+.close-button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1.2em;
+}

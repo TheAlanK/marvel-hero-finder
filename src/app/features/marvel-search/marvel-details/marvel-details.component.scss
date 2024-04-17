@@ -1,0 +1,97 @@
+.marvel-details-container {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: auto;
+  position: relative;
+  max-width: 80vw;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.marvel-image-container {
+  display: flex;
+  max-width: 70vw;
+  img {
+    flex: 1;
+    border-radius: 8px;
+    max-height: 70vh;
+  }
+}
+
+.marvel-info-container {
+  flex: 1;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.marvel-links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.openai-disclaimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+  img {
+    width: 150px;
+  }
+
+  p {
+    margin: 0 10px;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .marvel-image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .marvel-search-container {
+    height: auto;
+    min-height: 100vh;
+    display: contents;
+
+  }
+
+  .marvel-details-container {
+    flex-direction: column;
+    position: static;
+    transform: none;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .marvel-image-container {
+    width: 100%;
+    height: auto;
+    flex: none;
+    order: 1;
+    max-width: fit-content;
+  }
+
+  .marvel-image-container img {
+    border-radius: 8px 8px 0 0;
+    height: auto;
+  }
+
+  .marvel-info-container {
+    order: 2;
+    box-sizing: border-box;
+  }
+}
+

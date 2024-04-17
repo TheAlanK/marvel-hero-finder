@@ -1,0 +1,7 @@
+<div class="connection-snackbar" role="alert" aria-live="assertive">
+  <img [src]="data.img" [alt]="data.altText || 'Status'" width="24">
+  <span>{{ data.message }}</span>
+  <button (click)="close()" aria-label="Fechar notificação" class="close-button">
+    <mat-icon aria-hidden="true">close</mat-icon>
+  </button>
+</div>
