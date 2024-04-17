@@ -1,9 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { checkConnectionFailure, checkConnectionSuccess } from './connection.actions';
-
-export interface ConnectionState {
-  isConnected: boolean;
-}
+import { ConnectionState } from './connection.state';
 
 export const initialState: ConnectionState = {
   isConnected: true,

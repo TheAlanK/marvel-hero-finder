@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { ConnectionSnackbarComponent } from '@shared/components/connection-snackbar/connection-snackbar.component';
 import { checkConnectionStart } from 'src/store/connection/connection.actions';
-import { ConnectionState } from 'src/store/connection/connection.reducers';
+import { ConnectionState } from 'src/store/connection/connection.state';
 
 @Component({
   selector: 'app-root',

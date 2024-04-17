@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { catchError, switchMap, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MarvelService } from 'src/app/services/marvel-services/marvel.service';
-import { additionalGptInfoSuccess, clearAdditionalGptInfo, searchMarvel, searchMarvelFailure, searchMarvelSuccess, selectMarvel } from './marvel.actions';
+import { additionalGptInfoFailure, additionalGptInfoSuccess, clearAdditionalGptInfo, searchMarvel, searchMarvelFailure, searchMarvelSuccess, selectMarvel } from './marvel.actions';
 import { setLoading } from '../loading/loading.actions';
 import { OpenaiService } from 'src/app/services/openai-services/openai.service';
 
@@ -47,7 +47,7 @@ export class MarvelEffects {
           tap(() => this.store.dispatch(setLoading({ status: false }))),
           catchError(error => {
             this.store.dispatch(setLoading({ status: false }));
-            return of(searchMarvelFailure({ error }));
+            return of(additionalGptInfoFailure({ error }));
           })
         )
       )
