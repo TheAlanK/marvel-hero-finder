@@ -1,6 +1,6 @@
 # Marvel Hero Finder
 
-Projeto pode ser acessado através do link: [Marvel Hero Finder](https://marvel.sethian.com.br/)
+Projeto pode ser acessado através do link: [Marvel Hero Finder](https://marvel-character-searcher.web.app)
 
 ## Sumário
 - [Introdução](#introducao)
