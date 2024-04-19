@@ -20,7 +20,7 @@ export class SearchBarComponent implements OnInit {
 
   constructor(private searchHistoryService: SearchHistoryService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loadSearchHistory();
 
     this.searchControl.valueChanges.pipe(
@@ -40,7 +40,7 @@ export class SearchBarComponent implements OnInit {
     });
   }
 
-  loadSearchHistory(): void {
+  public loadSearchHistory(): void {
     this.searchHistoryService.getSearches().then(history => {
       this.options = history.slice(-5);
       this.options.forEach(option => {
@@ -49,19 +49,19 @@ export class SearchBarComponent implements OnInit {
     });
   }
 
-  onSelect(value: any): void {
+  public onSelect(value: any): void {
     console.log('Selected value:', value);
     this.selectionChange.emit(value);
     this.searchControl.setValue(this.displayWith ? this.displayWith(value) : value, { emitEvent: false });
     this.searchHistoryService.addSearch(value);
   }
 
-  clearSearch(): void {
+  public clearSearch(): void {
     this.searchControl.reset('', { emitEvent: false });
     this.loadSearchHistory();
   }
 
-  onBlur(): void {
+  public onBlur(): void {
     if (!this.searchControl.value) {
       this.loadSearchHistory();
     }
